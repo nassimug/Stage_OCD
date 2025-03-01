@@ -69,6 +69,32 @@ Les utilisateurs peuvent proposer des modifications qui seront validées par vot
 - **3 validations** : La modification est acceptée.
 - **3 refus** : La modification est définitivement rejetée.
 
+## Évolution des données : Propositions de Modifications et Validation
+### Insertion d'une proposition de modification
+Lorsqu'un utilisateur propose une modification (ex. modification d'un nom, ajout d'une relation), les données sont insérées dans une table `modification_requests` avec les informations suivantes :
+- `id`
+- `user_id` (utilisateur ayant fait la demande)
+- `person_id` (personne concernée par la modification)
+- `field` (champ modifié, ex: `last_name`)
+- `new_value`
+- `status` ("en attente", "validé", "rejeté")
+- `created_at` / `updated_at`
+
+### Validation d'une modification
+Lorsqu'une modification est proposée, chaque membre peut l'accepter ou la refuser. Ces votes sont enregistrés dans une table `modification_votes` :
+- `id`
+- `modification_request_id`
+- `user_id` (utilisateur ayant voté)
+- `vote` (1 = accepté, 0 = refusé)
+- `created_at`
+
+Une fois que **3 votes positifs** sont enregistrés, la modification est appliquée à la table `people`. Si **3 votes négatifs** sont enregistrés, la modification est rejetée.
+
+### Mise à jour de la base de données
+- Si la modification est acceptée, le champ concerné dans `people` est mis à jour avec `new_value`.
+- Si la modification est rejetée, elle est archivée mais ne change pas les données de la personne.
+- Les modifications validées ou refusées sont supprimées de la table `modification_requests`.
+
 ## Schéma de base de données
 Le schéma de la base de données peut être consulté ici :
 [Voir le schéma](https://dbdiagram.io/d/67c36ed7263d6cf9a0e7a63d)
@@ -78,4 +104,5 @@ Les contributions sont les bienvenues ! Merci de consulter les [guidelines de co
 
 ## Licence
 Ce projet est sous licence [MIT](https://opensource.org/licenses/MIT).
+
 
