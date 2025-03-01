@@ -8,7 +8,7 @@ use App\Models\Person;
 use App\Http\Controllers\DegreeController;
 
 Route::get('/', function () {
-    return view('layouts.app');
+    return view('auth.login');
 });
 
 
@@ -27,9 +27,6 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware('auth')->name('dashboard');
 
 
 Route::get('/degree-form', function () {

@@ -22,7 +22,7 @@ class AuthController extends Controller
         ]);
 
         if (Auth::attempt($credentials)) {
-            return redirect()->route('dashboard');
+            return redirect()->route('people.index');
         }
 
         return back()->withErrors(['email' => 'Email ou mot de passe incorrect']);

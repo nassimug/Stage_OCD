@@ -1,7 +1,71 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<style>
+    body {
+        background-color: #eef2f7;
+        font-family: 'Arial', sans-serif;
+    }
+    .test {
+        max-width: 500px;
+        margin: 50px auto;
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+        font-size: 26px;
+        font-weight: bold;
+        text-align: center;
+        color: #333;
+        margin-bottom: 20px;
+    }
+    label {
+        font-weight: 600;
+        color: #444;
+    }
+    .form-control {
+        width: 100%;
+        padding: 12px;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        transition: all 0.3s ease-in-out;
+    }
+    .form-control:focus {
+        border-color: #007bff;
+        outline: none;
+        box-shadow: 0 0 6px rgba(0, 123, 255, 0.3);
+    }
+    .btn-primary {
+        width: 100%;
+        padding: 14px;
+        background: #007bff;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background 0.3s ease-in-out;
+    }
+    .btn-primary:hover {
+        background: #0056b3;
+    }
+    .result-container {
+        background: #f8f9fa;
+        padding: 15px;
+        border-radius: 6px;
+        margin-top: 20px;
+    }
+    .text-danger {
+        color: #dc3545;
+        font-weight: bold;
+    }
+</style>
+
+<div class="container test">
     <h1>Calcul du degré de parenté</h1>
 
     <form action="{{ route('degree.check') }}" method="GET">
@@ -20,7 +84,7 @@
     </form>
 
     @if(isset($degree))
-        <div class="mt-4">
+        <div class="result-container">
             <h3>Résultat :</h3>
             @if($degree === false)
                 <p class="text-danger">Aucune relation trouvée entre {{ $id1 }} et {{ $id2 }} (ou degré > 25).</p>
