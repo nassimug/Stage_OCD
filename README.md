@@ -99,10 +99,7 @@ Une fois que **3 votes positifs** sont enregistrés, la modification est appliqu
 Le schéma de la base de données peut être consulté ici :
 [Voir le schéma](https://dbdiagram.io/d/67c36ed7263d6cf9a0e7a63d)
 
-## Contribuer
-Les contributions sont les bienvenues ! Merci de consulter les [guidelines de contribution](https://laravel.com/docs/contributions) avant de proposer une modification.
-
 ## Licence
 Ce projet est sous licence [MIT](https://opensource.org/licenses/MIT).
 
-
+Nassim MADI
