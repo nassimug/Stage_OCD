@@ -11,7 +11,7 @@ Ce projet est une application web permettant de créer un arbre généalogique i
 ## Installation et configuration
 1. **Clonez le projet**
    ```sh
-   git clone https://github.com/votre-repo.git
+   git clone https://github.com/nassimug/Stage_OCD
    cd votre-repo
    ```
 2. **Installez les dépendances**
@@ -71,7 +71,7 @@ Les utilisateurs peuvent proposer des modifications qui seront validées par vot
 
 ## Schéma de base de données
 Le schéma de la base de données peut être consulté ici :
-[Voir le schéma](https://dbdiagram.io/)
+[Voir le schéma](https://dbdiagram.io/d/67c36ed7263d6cf9a0e7a63d)
 
 ## Contribuer
 Les contributions sont les bienvenues ! Merci de consulter les [guidelines de contribution](https://laravel.com/docs/contributions) avant de proposer une modification.
